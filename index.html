@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tabela Verdade / Comparação</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <button id="btnAjuda">Ajuda</button>
+
+<div id="modal" class="hidden">
+  <div class="modal-content">
+    <span id="fechar">&times;</span>
+    <h2>Regras de Sintaxe</h2>
+    <p><strong>AND</strong> é representado por um sinal de <code>*</code><br>
+      Exemplo: A * B (equivalente a AB)</p>
+    <p><strong>NOT</strong> é representado pela sintaxe <code>not(Expressao)</code><br>
+      Exemplo: not(A) (equivalente a A negado)</p>
+    <p>Você pode colocar expressões dentro do <code>not</code><br>
+      Exemplo: not(A * B) (equivalente a (AB) negado)</p>
+    <p><strong>Exemplo completo:</strong><br>
+      not(A) * not(B) + not(A) * B + not(A * B) (equivalente a A'B' + A'B + (AB)')</p>
+    <p>Para dúvidas, me manda mensagem!</p>
+  </div>
+</div>
+
+    <div class="container">
+      <h1>Tabela Verdade / Gabarito</h1>
+
+      <label for="expressao">Digite sua expressão:</label>
+      <input type="text" id="expressao" placeholder="Ex: A and not(B)" />
+
+      <label for="acao">O que deseja?</label>
+      <select id="acao">
+        <option value="tabela">Gerar apenas a tabela verdade</option>
+        <option value="comparar">Comparar com gabarito</option>
+      </select>
+
+      <div id="gabaritoContainer" class="hidden">
+        <label for="gabarito">Digite o gabarito:</label>
+        <input type="text" id="gabarito" placeholder="Ex: A and B" />
+      </div>
+
+      <button id="executar">Executar</button>
+    </div>
+    <div id="resultado"></div>
+    <script>
+        //alert("Para utilizar considere as seguintes regras de sintaxe: \n\nUm AND é representado por um sinal de '*'\n --> Exemplo: Se você quiser escrever AB a sintaxe será A * B\n\nUm NOT é representado pela sintaxe not(Expressao)\n--> Exemplo: Se você quiser escrever A' (A negado, A com aquele traço em cima) a sintaxe será not(A)\n\nVocê pode escrever expressões dentro do not\n--> Exemplo: Se você quiser escrever (AB)' (AB negado, traço grandão em cima deles) a sintaxe será not(A * B)\n\nExemplo de uma expressão completa:\n A'B' + A'B + (AB)' \n---> Na sintaxe será: not(A) * not(B) + not(A) * B + not(A * B)\n\nPara dúvidas, me manda mensagem!")
+    </script>
+    <script src="script.js"></script>
+  </body>
+</html>
